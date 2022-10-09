@@ -95,40 +95,40 @@ def getDadosJogo(linkJogo,idJogo):
     print(tempDataframe) 
     return tempDataframe
 
+def geraDetalheJogos(): 
+    #----------------- lendo os jogos baixados
+    file = '003_storage/000_transient/ludopedia_listaJogos.csv'
+    csvDetalheJogos = '003_storage/000_transient/ludopedia_DetalhesJogos.csv'
 
-#----------------- lendo os jogos baixados
-file = '003-storage/000-transient/ludopedia_listaJogos.csv'
-csvDetalheJogos = '003-storage/000-transient/ludopedia_DetalhesJogos.csv'
+    df = pd.read_csv(file,sep=';',quoting=csv.QUOTE_NONNUMERIC)
+    linkJogo = df['url']
+    print('DF size :'+str(df.size))
+    print('DF shape :'+str(df.shape))
 
-df = pd.read_csv(file,sep=';',quoting=csv.QUOTE_NONNUMERIC)
-linkJogo = df['url']
-print('DF size :'+str(df.size))
-print('DF shape :'+str(df.shape))
+    dfJogoAll = pd.DataFrame(columns=["id",
+                                "jogoAno",
+                                "jogoIdade",
+                                "jogoTempJogo",
+                                "jogoQtJogadores",
+                                "jogoMiolosDesigner",
+                                "jogoMiolosArtista",
+                                "jogoMiolosEditora",
+                                "jogoStatTem",
+                                "jogoStatQuer",
+                                "jogoStatTeve",
+                                "jogoStatFavorito",
+                                "jogoResumoTexto"])
 
-dfJogoAll = pd.DataFrame(columns=["id",
-                            "jogoAno",
-                            "jogoIdade",
-                            "jogoTempJogo",
-                            "jogoQtJogadores",
-                            "jogoMiolosDesigner",
-                            "jogoMiolosArtista",
-                            "jogoMiolosEditora",
-                            "jogoStatTem",
-                            "jogoStatQuer",
-                            "jogoStatTeve",
-                            "jogoStatFavorito",
-                            "jogoResumoTexto"])
+    #for idJogo in  idsJogos:
+    for i in range(len(df)):
+        dfJogo = getDadosJogo(linkJogo[i],i+1)
+        dfJogoAll = pd.concat([dfJogoAll,dfJogo],axis=0)
+        if i == 0:
+            #criando o arquivo inicial
+            # com o header
+            dfJogo.to_csv(csvDetalheJogos, sep=';',quoting=csv.QUOTE_NONNUMERIC)
+        else:
+            dfJogo.to_csv(csvDetalheJogos,mode='a', header=False, sep=';',quoting=csv.QUOTE_NONNUMERIC)
 
-#for idJogo in  idsJogos:
-for i in range(len(df)):
-    dfJogo = getDadosJogo(linkJogo[i],i+1)
-    dfJogoAll = pd.concat([dfJogoAll,dfJogo],axis=0)
-    if i == 0:
-        #criando o arquivo inicial
-        # com o header
-        dfJogo.to_csv(csvDetalheJogos, sep=';',quoting=csv.QUOTE_NONNUMERIC)
-    else:
-        dfJogo.to_csv(csvDetalheJogos,mode='a', header=False, sep=';',quoting=csv.QUOTE_NONNUMERIC)
-
-    
-    
+        
+        

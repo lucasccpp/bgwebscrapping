@@ -1,0 +1,7 @@
+necessario fazer:
+
+    - processo update de DIM
+    - orquestrador
+    - criar funcoes entre os processos
+    - processo de load
+    - parametrizar diretorios

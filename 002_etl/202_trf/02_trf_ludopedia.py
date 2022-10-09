@@ -1,11 +1,11 @@
 import pandas as pd
 import csv
 
-path_raw = '003-storage/001-raw/'
+path_raw = '003_storage/001_raw/'
 file_raw_list = 'ludopedia_listaJogos.csv'
 file_raw_detalhe = 'ludopedia_DetalhesJogos.csv'
 
-path_curated = '003-storage/002-curated/'
+path_curated = '003_storage/002_curated/'
 file_curated_all = 'ludopedia_all.csv'
 
 file_curated_DimCategoria = 'ludopedia_DimCategoria.csv'
