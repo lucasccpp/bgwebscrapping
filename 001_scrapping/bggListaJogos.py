@@ -78,4 +78,4 @@ def geraListaJogos():
         print("Number of games with > 100 ratings is approximately %i" % (len(df),))
         print("Total number of ratings from all these games is %i" % (df["nrate"].sum(),))
 
-geraListaJogos()
+#geraListaJogos()
