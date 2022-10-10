@@ -131,4 +131,4 @@ def geraDetalheJogos():
             dfJogo.to_csv(csvDetalheJogos,mode='a', header=False, sep=';',quoting=csv.QUOTE_NONNUMERIC)
 
         
-        
+#geraDetalheJogos()

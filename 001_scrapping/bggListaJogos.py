@@ -67,7 +67,7 @@ def geraListaJogos():
         df_all = pd.concat([df_all, df], axis=0)
         npage += 1
         sleep(2)  # Keep the BGG server happy.
-
+        
         df = df_all.copy()
         # Reset the index since we concatenated a bunch of DFs with the same index into one DF
         df.reset_index(inplace=True, drop=True)
@@ -78,3 +78,4 @@ def geraListaJogos():
         print("Number of games with > 100 ratings is approximately %i" % (len(df),))
         print("Total number of ratings from all these games is %i" % (df["nrate"].sum(),))
 
+geraListaJogos()

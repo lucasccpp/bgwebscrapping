@@ -181,3 +181,5 @@ def geraDetalheJogos():
     #end = time.time()
     #print("final da extração {0}".format(end))
     #print("total de tempo em execução: {0}".format(str(end - start)))
+
+#geraDetalheJogos()

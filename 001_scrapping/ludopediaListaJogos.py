@@ -99,3 +99,5 @@ def geraListaJogos():
             df.to_csv(fileNameListaJogos,mode='a', header=False,sep=';',index=False,quoting=csv.QUOTE_NONNUMERIC)
 
     print(df_all.head())
+
+#geraListaJogos()
