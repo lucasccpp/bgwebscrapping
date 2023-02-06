@@ -1,9 +1,9 @@
 import time
 import shutil
 
-path_transient = '003_storage/000_transient/'
-path_raw = '003_storage/001_raw/'
-path_raw_ver = '003_storage/001_raw/001_history/'
+path_transient = '../../003_storage/000_transient/'
+path_raw = '../../003_storage/001_raw/'
+path_raw_ver = '../../003_storage/001_raw/001_history/'
 file_bgg_list = 'bgg_gamelist.csv'
 file_bgg_detalhe = 'bgg_DetalhesJogos.csv' 
 file_ludop_list = 'ludopedia_listaJogos.csv'
