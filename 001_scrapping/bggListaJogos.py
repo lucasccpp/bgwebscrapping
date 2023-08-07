@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from time import sleep
 import math
+import os
+
 
 def request(msg, slp=1):
     '''A wrapper to make robust https requests.'''
@@ -73,8 +75,10 @@ def geraListaJogos():
         df = df_all.copy()
         # Reset the index since we concatenated a bunch of DFs with the same index into one DF
         df.reset_index(inplace=True, drop=True)
-        # Write the DF to .csv for future use
-        df.to_csv("003_storage/000_transient/bgg_gamelist.csv", index=False, encoding="utf-8")
+        # Write the DF to .csv for future us
+        diretorio_atual = os.getcwd()
+        #diretorio_pai = os.path.abspath(os.path.join(diretorio_atual, os.pardir))
+        df.to_csv(diretorio_atual+"/003_storage/000_transient/bgg_gamelist.csv", index=False, encoding="utf-8")
         df.head()
 
         print("Number of games with > 100 ratings is approximately %i" % (len(df),))
