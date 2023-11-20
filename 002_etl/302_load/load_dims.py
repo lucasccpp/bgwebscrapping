@@ -27,3 +27,5 @@ dfDimCategoria.rename(columns={'bg_categoria':'s_nm_categoria'},inplace=True)
 
 
 dfDimCategoria.to_sql('dim_categoria', con=engine, if_exists='append', index=False)
+
+print("fim")
