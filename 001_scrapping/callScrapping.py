@@ -2,6 +2,7 @@ import ludopediaListaJogos
 import ludopediaDetalhes
 import bggListaJogos
 import bggDetalhes
+import logging
 
 
 
@@ -10,6 +11,12 @@ print("Iniciando processo de extração dos jogos")
 print("--------------------------------------------")
 print("Extraindo listagem dos jogos do BGG")
 bggListaJogos.geraListaJogos()
+# Configure logging
+logging.basicConfig(filename='scrapping.log', level=logging.INFO)
+
+# Log a message
+logging.info('Extraction of game list from BGG completed')
+
 print("--------------------------------------------")
 print("Extraindo detalhes dos Jogos do BGG")
 bggDetalhes.geraDetalheJogos()

@@ -22,10 +22,6 @@ def request(msg, slp=1):
     return r
 
 def geraListaJogos():
-    #r = requests.get("http://www.boardgamegeek.com/xmlapi2/user?name=Zazz&top=1")
-    #soup = BeautifulSoup(r.text, "xml")  # Use the xml parser for API responses and the html_parser for scraping
-    #print(r.status_code)  # 404 not found and the like. Hopefully 200!
-
     # Initialize a DF to hold all our scraped game info
     df_all = pd.DataFrame(columns=["id", "name", "nrate", "pic_url"])
     min_nrate = 1e5
